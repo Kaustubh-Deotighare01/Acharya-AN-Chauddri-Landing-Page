@@ -170,7 +170,7 @@ body {
 }
 
 .bottom-bar-price .current-price {
-    font-size: 1.15rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: #0D4142;
 }
@@ -303,6 +303,31 @@ body {
     }
 }
 
+/* Price Highlights inside CTA buttons & banners */
+.price-highlight {
+    font-size: 1.4em;
+    font-weight: 900;
+    color: #FFE500; /* Vibrant Neon Gold/Yellow inside CTA buttons */
+    text-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    transition: all 0.25s ease;
+    margin-left: 2px;
+}
+
+/* For buttons hover, scale it slightly for micro-interaction */
+.btn-primary:hover .price-highlight,
+.bottom-bar-btn:hover .price-highlight {
+    transform: scale(1.1);
+    color: #ffffff; /* Turns bright white on hover */
+}
+
+/* In the fixed top bar (which has a white background), style it with high-contrast red */
+.fixed-top-bar .price-highlight {
+    color: #ff3b30; /* Vibrant Red live pricing */
+    text-shadow: none;
+    font-size: 1.05em;
+}
+
 .container {
     width: 100%;
     max-width: 1280px;
@@ -315,7 +340,7 @@ body {
     display: inline-block;
     background: #046bd2;
     color: white;
-    font-weight: 600;
+    font-weight: 800;
     padding: 12px 28px;
     border-radius: 40px;
     text-decoration: none;
@@ -410,6 +435,7 @@ h4 {
 
 /* hero section */
 .hero-section {
+    margin-top: -50px;
     min-height: 100vh;
     width: 100%;
     padding: 0px 0 40px;
