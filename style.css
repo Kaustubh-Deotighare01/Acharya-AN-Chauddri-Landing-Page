@@ -149,7 +149,7 @@ body {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 6px 10px 10px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -210,7 +210,7 @@ body {
     border-radius: 30px;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 1.4rem;
     letter-spacing: 0.05em;
     transition: all 0.25s ease;
     border: none;
@@ -286,7 +286,7 @@ body {
         text-align: center;
         margin-top: 1px;
         padding: 6px 14px;
-        font-size: 0.72rem;
+        font-size: 1.2rem;
     }
 }
 
