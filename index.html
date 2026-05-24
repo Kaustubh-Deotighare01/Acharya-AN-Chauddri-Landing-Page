@@ -17,6 +17,17 @@
 
 <body>
 
+    <!-- FIXED TOP BAR -->
+    <div class="fixed-top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="live-dot"></span>
+                <span class="live-label">LIVE | REGISTER @ ₹99 &rarr;</span>
+            </div>
+            <a href="#join-now" class="top-bar-btn">REGISTER NOW</a>
+        </div>
+    </div>
+
     <!-- HERO SECTION -->
     <section id="hero" class="hero-section">
         <div class="container">
@@ -478,7 +489,49 @@
                 }
             }
         });
+        // Bottom Bar Countdown (2 hours = 7200 seconds)
+        function initBottomBarTimer() {
+            let totalSeconds = 7200; // 2 hours
+            const countdownEl = document.getElementById('bottomBarCountdown');
+            if (!countdownEl) return;
+
+            function updateTimer() {
+                let hours = Math.floor(totalSeconds / 3600);
+                let minutes = Math.floor((totalSeconds % 3600) / 60);
+                let seconds = totalSeconds % 60;
+
+                countdownEl.innerHTML = `
+                    <span class="timer-segment">${hours.toString().padStart(2, '0')}h</span> : 
+                    <span class="timer-segment">${minutes.toString().padStart(2, '0')}m</span> : 
+                    <span class="timer-segment">${seconds.toString().padStart(2, '0')}s</span>
+                `;
+
+                if (totalSeconds > 0) {
+                    totalSeconds--;
+                } else {
+                    totalSeconds = 7200; // Reset to 2 hours
+                }
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+        initBottomBarTimer();
     </script>
+    <!-- FIXED BOTTOM BAR -->
+    <div class="fixed-bottom-bar" id="fixedBottomBar">
+        <div class="bottom-bar-container">
+            <div class="bottom-bar-price">
+                <span class="original-price">₹999</span>
+                <span class="current-price">₹99</span>
+            </div>
+            <div class="bottom-bar-timer">
+                <span class="timer-label">Ends in:</span>
+                <span id="bottomBarCountdown" class="timer-countdown">02h : 00m : 00s</span>
+            </div>
+            <a href="#join-now" class="bottom-bar-btn">Register Now @ ₹99</a>
+        </div>
+    </div>
     <!-- Back to Top Button -->
     <a href="#hero" class="back-to-top" id="backToTopBtn" aria-label="Back to Top">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.435l-9.8 9.8 1.4 1.4 8.4-8.4 8.4 8.4 1.4-1.4-9.8-9.8z"/></svg>
