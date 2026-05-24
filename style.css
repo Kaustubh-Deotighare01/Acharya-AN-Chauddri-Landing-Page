@@ -164,7 +164,7 @@ body {
 }
 
 .bottom-bar-price .original-price {
-    font-size: 0.7rem;
+    font-size: .7rem;
     text-decoration: line-through;
     color: rgba(30, 41, 59, 0.5);
 }
@@ -210,7 +210,7 @@ body {
     border-radius: 30px;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 0.78rem;
+    font-size: 0.9rem;
     letter-spacing: 0.05em;
     transition: all 0.25s ease;
     border: none;
@@ -387,6 +387,17 @@ body {
     background: #8e6b41;
     transform: scale(1.04);
     box-shadow: 0 12px 30px rgba(170, 133, 83, 0.35);
+}
+
+/* Hero buttons custom personalization classes */
+.hero-btn-join {
+    font-size: 1.35rem;
+    padding: 8px 22px;
+}
+
+.hero-btn-reserve {
+    font-size: 1.35rem;
+    padding: 8px 22px;
 }
 
 .countdown-timer {
@@ -1601,4 +1612,23 @@ footer {
     .section-title {
         font-size: 1.5rem;
     }
+}
+
+.hero-btn-join {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1.5rem;
+    padding: 8px 34px;
+}
+.hero-btn-reserve {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1.3rem;
+    padding: 8px 34px;
 }
