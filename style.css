@@ -141,7 +141,7 @@ body {
     border-top: 2.5px solid #AA8553;
     z-index: 1000;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
-    padding: 6px 0;
+    padding: 2px 0;
     transition: transform 0.3s ease;
 }
 
@@ -462,6 +462,7 @@ h4 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    margin-top: -10px;
     gap: 30px;
 }
 
