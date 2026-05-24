@@ -2,6 +2,7 @@
 <html lang="en-US">
 
 <head>
+    <script>document.documentElement.classList.add('js-enabled');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Vastu Magicks World | Webinar 2026</title>
@@ -17,7 +18,7 @@
 <body>
 
     <!-- HERO SECTION -->
-    <section class="hero-section">
+    <section id="hero" class="hero-section">
         <div class="container">
             <div class="hero-layout">
                 <div class="hero-copy">
@@ -306,6 +307,7 @@
     <!-- WEBINAR DETAILS + FORM (Limited Seats) -->
     <section id="join-now" class="join-section">
         <div class="container">
+            <h1 class="section-title">Join Vastu Workshop</h1>
             <div class="flex-between">
                 <div class="w-50">
                     <div class="form-wrapper">
@@ -448,7 +450,39 @@
                 document.getElementById('join-now').scrollIntoView({ behavior: 'smooth' });
             });
         });
+
+        // Intersection Observer for scroll animations
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('scroll-active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.card, .learn-card, .trainer-card, .testimonial-card').forEach((el) => {
+            scrollObserver.observe(el);
+        });
+
+        // Back to Top button toggle logic
+        window.addEventListener('scroll', () => {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (backToTopBtn) {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            }
+        });
     </script>
+    <!-- Back to Top Button -->
+    <a href="#hero" class="back-to-top" id="backToTopBtn" aria-label="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.435l-9.8 9.8 1.4 1.4 8.4-8.4 8.4 8.4 1.4-1.4-9.8-9.8z"/></svg>
+    </a>
 </body>
 
 </html>

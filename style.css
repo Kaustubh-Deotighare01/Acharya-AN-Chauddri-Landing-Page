@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background: #fde8cf;
@@ -11,6 +16,31 @@ body {
     line-height: 1.5;
     scroll-behavior: smooth;
 }
+
+/* Custom Scrollbar Styles */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #0D4142 #fde8cf;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fde8cf;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0D4142;
+    border-radius: 6px;
+    border: 3px solid #fde8cf;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #AA8553;
+}
+
 
 .container {
     width: 100%;
@@ -192,9 +222,9 @@ h4 {
     margin-top: 100px;
     max-width: 400px;
     width: 100%;
-    animation: slideUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     opacity: 0;
-    transform: translateY(80px);
+    transform: translateY(40px);
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 50%);
     mask-image: linear-gradient(to bottom, black 70%, transparent 109%);
 }
@@ -207,14 +237,8 @@ h4 {
 @keyframes slideUp {
     0% {
         opacity: 0;
-        transform: translateY(80px);
+        transform: translateY(40px);
     }
-
-    60% {
-        opacity: 1;
-        transform: translateY(-10px);
-    }
-
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -465,7 +489,8 @@ h4 {
 footer {
     background: #0D4142;
     color: white;
-    padding: 10px 0;
+    padding-bottom: 10px;
+    padding-top: 20px;
 }
 
 @media (max-width: 768px) {
@@ -984,6 +1009,114 @@ footer {
     100% {
         transform: translateY(0) scale(1);
         filter: drop-shadow(0 6px 12px rgba(170, 133, 83, 0.2));
+    }
+}
+
+/* SCROLL DETECTED ENTRANCE ANIMATIONS */
+.js-enabled .card,
+.js-enabled .learn-card,
+.js-enabled .trainer-card,
+.js-enabled .testimonial-card {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+/* Default slide up for generic elements */
+.js-enabled .card,
+.js-enabled .learn-card,
+.js-enabled .testimonial-card {
+    transform: translateY(50px);
+}
+
+/* Webinar Target Cards Grid-5: slide in from left (odd) and right (even) */
+.js-enabled .grid-5 .card:nth-child(odd) {
+    transform: translateX(-60px) translateY(30px);
+}
+.js-enabled .grid-5 .card:nth-child(even) {
+    transform: translateX(60px) translateY(30px);
+}
+
+/* Why Choose Section Cards Grid-3: slide in from left, bottom, right */
+.js-enabled .why-grid .card:nth-child(3n+1) {
+    transform: translateX(-70px);
+}
+.js-enabled .why-grid .card:nth-child(3n+2) {
+    transform: translateY(50px);
+}
+.js-enabled .why-grid .card:nth-child(3n+3) {
+    transform: translateX(70px);
+}
+
+/* Learn Section Cards Grid-2: slide in from left and right */
+.js-enabled .learn-card-grid .learn-card:nth-child(odd) {
+    transform: translateX(-50px);
+}
+.js-enabled .learn-card-grid .learn-card:nth-child(even) {
+    transform: translateX(50px);
+}
+
+/* Trainer Cards: slide in from left, bottom, right */
+.js-enabled .trainer-card-img {
+    transform: translateX(-80px);
+}
+.js-enabled .trainer-card-primary {
+    transform: translateY(60px);
+}
+.js-enabled .trainer-card-secondary {
+    transform: translateX(80px);
+}
+
+/* Active Scroll Triggered States */
+.js-enabled .card.scroll-active,
+.js-enabled .learn-card.scroll-active,
+.js-enabled .trainer-card.scroll-active,
+.js-enabled .testimonial-card.scroll-active {
+    opacity: 1;
+    transform: translate(0, 0) !important;
+}
+
+/* Floating Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #AA8553;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(170, 133, 83, 0.35);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.back-to-top:hover {
+    background: #8e6b41;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(170, 133, 83, 0.5);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Adjust position slightly on mobile screens */
+@media (max-width: 576px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
     }
 }
 
