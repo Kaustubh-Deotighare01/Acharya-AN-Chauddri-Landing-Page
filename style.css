@@ -780,6 +780,24 @@ h4 {
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
 }
 
+.testimonial-img-card {
+    padding: 12px;
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial-img-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: contain;
+}
+
+
 .star {
     color: #f5b042;
     font-size: 1.2rem;
